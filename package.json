@@ -1,0 +1,47 @@
+{
+  "name": "bookmarks-server",
+  "version": "1.0.0",
+  "description": "Express API to PostgreSQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server.js",
+    "test": "mocha --require test/setup.js",
+    "migrate": "postgrator --config postgrator-config.js",
+    "migrate:test": "$env:NODE_ENV='test' & npm run migrate",
+    "migrate:production": "env SSL=true DATABASE_URL=$(heroku config:get DATABASE_URL) npm run migrate",
+    "predeploy": "npm audit && npm run migrate:production",
+    "deploy": "git push heroku master"
+  },
+  "author": "Rodrigo Hervas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "jest": "^25.1.0",
+    "knex": "^0.20.11",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.6.0",
+    "pg": "^7.18.2",
+    "valid-url": "^1.0.9",
+    "winston": "^3.2.1",
+    "xss": "^1.0.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.2",
+    "postgrator-cli": "^3.3.0",
+    "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": "12.15.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
+}
