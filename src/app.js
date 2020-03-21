@@ -23,7 +23,7 @@ app.use(accessHandler)
 //HOME ENDPOINT
 app.route('/api/')
     .get((req, res) => {
-        res.status(200).json('Welcome to bookmarks')
+        res.status(200).json('Welcome to bookmarks API')
     })
 
 //BOOKMARKS ENDPOINT
