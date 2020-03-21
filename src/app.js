@@ -21,6 +21,11 @@ app.use(bodyParser.json())
 app.use(accessHandler)
 
 //HOME ENDPOINT
+app.route('/')
+    .get((req, res) => {
+        res.status(200).json('Welcome to bookmarks API')
+    })
+//HOME ENDPOINT
 app.route('/api/')
     .get((req, res) => {
         res.status(200).json('Welcome to bookmarks API')
